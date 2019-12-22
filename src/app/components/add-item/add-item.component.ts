@@ -11,10 +11,12 @@ import { Item } from '../../models/Item';
 export class AddItemComponent implements OnInit {
   item: Item = {
     title: '',
-    description: ''
+    description: '',
+    time: new Date()
   }
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService) {
+   }
 
   ngOnInit() {
   }
