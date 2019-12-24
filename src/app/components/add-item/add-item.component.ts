@@ -12,7 +12,7 @@ export class AddItemComponent implements OnInit {
   item: Item = {
     title: '',
     description: '',
-    time: new Date()
+    time: new Date().getTime()
   }
 
   constructor(private itemService: ItemService) {
@@ -26,6 +26,7 @@ export class AddItemComponent implements OnInit {
       this.itemService.addItem(this.item);
       this.item.title = "";
       this.item.description ="";
+      this.item.time = new Date().getTime();
     }
   }
 }

@@ -3,12 +3,13 @@
     <li class="collection-item">
       <strong>{{item.title}}: </strong>
       {{item.description}}
+      <p>Create time: {{item.time | date: 'MMM d, y, HH:mm:ss'}}</p>
       <a href="#" class="secondary-content">
         <i (click) ="editItem($event, item)"class="fa fa-pencil"></i>
         <i *ngIf="editState && itemToEdit.id == item.id" (click) ="clearState()" class="fa fa-compress"></i>
       </a>
 
-      <div *ngIf="editState && itemToEdit.id == item.id" >
+      <div *ngIf="editState && itemToEdit.id == item.id">
         <form (ngSubmit)="updateItem(item)">
           <div class="row">
             <div class="input-field col s6">
@@ -18,7 +19,7 @@
               <input type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description">
             </div>
             <input type="submit" value="Update Item" class="btn orange">
-            <button class="btn red" (click) ="deleteItem($event, item)">Delete Item</button>
+            <button (click)="deleteItem($event, item)" class="btn red">Delete Item</button>
           </div>
         </form>
       </div>
